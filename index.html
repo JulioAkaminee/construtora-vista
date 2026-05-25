@@ -112,19 +112,7 @@
     img { transition: opacity 0.5s ease; }
     img[loading="lazy"] { opacity: 0; }
     img.loaded { opacity: 1; }
-  </style>
-
-    <!-- AOS Visibility Fix -->
-    <style>
-        /* Garante que elementos AOS no viewport inicial fiquem visíveis */
-        [data-aos]:not(.aos-animate) {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: none !important;
-        }
-    </style>
-
-</head>
+  </style></head>
 <body class="bg-offwhite text-stone antialiased">
 
   <!-- Navigation -->
@@ -800,5 +788,13 @@
         }
       });
     });
-  </script></body>
+  </script><!-- AOS Fix -->
+<style>
+[data-aos]:not(.aos-animate) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+</style>
+</body>
 </html>
