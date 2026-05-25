@@ -113,6 +113,17 @@
     img[loading="lazy"] { opacity: 0; }
     img.loaded { opacity: 1; }
   </style>
+
+    <!-- AOS Visibility Fix -->
+    <style>
+        /* Garante que elementos AOS no viewport inicial fiquem visíveis */
+        [data-aos]:not(.aos-animate) {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+    </style>
+
 </head>
 <body class="bg-offwhite text-stone antialiased">
 
@@ -789,6 +800,5 @@
         }
       });
     });
-  </script>
-</body>
+  </script></body>
 </html>
