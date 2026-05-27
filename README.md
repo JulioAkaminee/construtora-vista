@@ -8,7 +8,7 @@
 
 A **Construtora Vista** é uma landing page corporativa de alto padrão, desenvolvida para transmitir **confiança, segurança e sofisticação técnica** — valores essenciais no setor da construção civil.
 
-A experiência foi desenhada no nível de uma agência internacional: design refinado com **glassmorphism**, gradientes sutis, sombras em camadas, tipografia fluida e **animações customizadas** baseadas em Intersection Observer (sem bibliotecas pesadas). O objetivo é converter visitantes em leads qualificados através de uma jornada clara: conhecer os serviços, validar diferenciais, explorar o portfólio, confirmar credibilidade via certificações e solicitar um orçamento grátis.
+A experiência foi desenhada no nível de uma agência internacional: design refinado com **glassmorphism**, gradientes mesh sutis, sombras em camadas, textura de grão, grid bento e tipografia fluida. As animações de reveal usam **CSS custom + Intersection Observer** como base robusta (funcionam sem JS pesado), com **GSAP + ScrollTrigger** como camada de aprimoramento progressivo para parallax suave. O objetivo é converter visitantes em leads qualificados através de uma jornada clara: conhecer os serviços, entender o processo, explorar o portfólio, validar a confiança via depoimentos e certificações, e solicitar um orçamento grátis.
 
 ---
 
@@ -19,10 +19,11 @@ A experiência foi desenhada no nível de uma agência internacional: design ref
 | HTML5 | — | Estrutura semântica, acessível, single-file |
 | Tailwind CSS | Play CDN v3.x | Estilização utilitária + customizações via `@layer` |
 | Lucide Icons | Latest | Ícones vetoriais limpos e consistentes |
+| GSAP + ScrollTrigger | 3.12.x (CDN) | Parallax suave — aprimoramento progressivo (degrada para fallback nativo) |
 | Google Fonts | — | **Sora** (display/títulos) + **Inter** (corpo) |
-| JavaScript (vanilla) | ES6 | Animações, parallax, contadores, cursor, menu — zero frameworks |
+| JavaScript (vanilla) | ES6 | Reveals, contadores, cursor magnético, menu, barra de progresso — zero frameworks de UI |
 
-Sem build, sem bundler, sem dependências pesadas (React/Vue/GSAP não são utilizados).
+Sem build, sem bundler, sem React/Vue. O GSAP é opcional: se não carregar, o parallax do hero usa um fallback nativo e os reveals continuam funcionando via Intersection Observer.
 
 ---
 
@@ -38,28 +39,31 @@ Sem build, sem bundler, sem dependências pesadas (React/Vue/GSAP não são util
 
 ## Estrutura do Site
 
-1. **Loader** — Curtain de carregamento com marca animada (respeita `reduced-motion`)
-2. **Navegação Fixa** — Glassmorphism ao scroll, menu hambúrguer animado, CTA "Orçamento Grátis"
-3. **Hero** — Imagem com **parallax GPU**, headline com gradiente, estatísticas com **contador animado**
-4. **Serviços** — 6 cards com micro-interações e reveal escalonado (stagger)
-5. **Diferenciais** — Banner escuro com checklist, foto de destaque e badge flutuante
-6. **Portfólio** — Grid de 6 obras com overlay animado, zoom suave e foco por teclado
-7. **Certificações** — CREA-SP, ISO 9001, NR 18, GBC Brasil + marquee de parceiros
-8. **Orçamento Grátis** — Formulário acessível com validação e status `aria-live`
-9. **Footer** — Navegação, serviços, contato e redes sociais
-10. **WhatsApp Flutuante** — Botão fixo com pulso animado para conversão imediata
+1. **Loader** — Curtain de carregamento com marca e barra animada (respeita `reduced-motion`)
+2. **Navegação Fixa** — Glassmorphism ao scroll, menu hambúrguer animado, link ativo dinâmico, barra de progresso de leitura
+3. **Hero** — Imagem com **parallax GPU**, headline com gradiente, CTA magnético e estatísticas com **contador animado**
+4. **Serviços** — 6 cards com micro-interações, seta revelada no hover e reveal escalonado (stagger)
+5. **Processo** — Timeline de 4 etapas em cartões glass (Diagnóstico → Projeto → Execução → Entrega)
+6. **Diferenciais** — Checklist em cartões, foto em parallax e badges flutuantes (obras + avaliação)
+7. **Portfólio** — **Grid bento** de 6 obras com overlay animado, zoom suave e foco por teclado
+8. **Depoimentos** — 3 cards de clientes com avaliação em estrelas
+9. **Certificações** — CREA-SP, ISO 9001, NR 18, GBC Brasil + marquee de parceiros
+10. **Orçamento Grátis** — Formulário acessível com validação e status `aria-live`
+11. **Footer** — Navegação, serviços, contato e redes sociais
+12. **WhatsApp Flutuante** — Botão fixo com pulso animado para conversão imediata
 
 ---
 
 ## Destaques de UI/UX
 
-- **Glassmorphism** na navbar e em elementos de destaque
-- **Animações customizadas** via Intersection Observer — substituindo bibliotecas externas
-- **Stagger reveal** em cards e listas
-- **Parallax suave** no hero, baseado em `transform` (GPU-accelerated)
+- **Glassmorphism** na navbar e nos cartões do processo
+- **Gradientes mesh** e **textura de grão** sutil para profundidade premium
+- **Reveals** via Intersection Observer com **stagger** em cards e listas
+- **Parallax suave** (GSAP ScrollTrigger, com fallback nativo) no hero e na foto de diferenciais
 - **Contadores animados** com easing nas estatísticas
-- **Cursor customizado** com ring magnético (apenas dispositivos com ponteiro fino)
-- **Micro-interações**: hover lift, glow, transições fluidas
+- **Cursor customizado** com ring + **botões magnéticos** (apenas ponteiro fino)
+- **Grid bento** no portfólio e **micro-interações**: hover lift, glow, seta revelada, shimmer no CTA
+- **Barra de progresso** de leitura e **link de navegação ativo** conforme a seção visível
 - **Marquee** infinito de parceiros que pausa ao passar o mouse
 
 ---
