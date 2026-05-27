@@ -1,14 +1,14 @@
 # Construtora Vista
 
-> Landing page profissional para construtora e reformas em Bragança Paulista, SP.
+> Landing page premium para construtora, reformas e projetos arquitetônicos em Bragança Paulista, SP.
 
 ---
 
 ## Sobre o Projeto
 
-A **Construtora Vista** é uma landing page corporativa desenvolvida para demonstrar excelência no setor da construção civil. O site combina um design **Swiss/Minimalista** com animações ricas e uma identidade visual que transmite **confiança, segurança e profissionalismo** — valores essenciais para uma construtora.
+A **Construtora Vista** é uma landing page corporativa de alto padrão, desenvolvida para transmitir **confiança, segurança e sofisticação técnica** — valores essenciais no setor da construção civil.
 
-O projeto foi pensado para converter visitantes em leads qualificados através de uma jornada clara: conhecer os serviços, explorar o portfólio, validar a credibilidade via certificações e solicitar um orçamento grátis.
+A experiência foi desenhada no nível de uma agência internacional: design refinado com **glassmorphism**, gradientes sutis, sombras em camadas, tipografia fluida e **animações customizadas** baseadas em Intersection Observer (sem bibliotecas pesadas). O objetivo é converter visitantes em leads qualificados através de uma jornada clara: conhecer os serviços, validar diferenciais, explorar o portfólio, confirmar credibilidade via certificações e solicitar um orçamento grátis.
 
 ---
 
@@ -16,47 +16,73 @@ O projeto foi pensado para converter visitantes em leads qualificados através d
 
 | Tecnologia | Versão | Propósito |
 |---|---|---|
-| HTML5 | — | Estrutura semântica e acessível |
-| Tailwind CSS | CDN v3.x | Estilização utilitária e responsiva |
-| AOS (Animate On Scroll) | 2.3.1 | Animações de entrada ao rolar a página |
+| HTML5 | — | Estrutura semântica, acessível, single-file |
+| Tailwind CSS | Play CDN v3.x | Estilização utilitária + customizações via `@layer` |
 | Lucide Icons | Latest | Ícones vetoriais limpos e consistentes |
-| Google Fonts | — | Tipografia Poppins (títulos) + Open Sans (corpo) |
+| Google Fonts | — | **Sora** (display/títulos) + **Inter** (corpo) |
+| JavaScript (vanilla) | ES6 | Animações, parallax, contadores, cursor, menu — zero frameworks |
+
+Sem build, sem bundler, sem dependências pesadas (React/Vue/GSAP não são utilizados).
 
 ---
 
 ## Paleta de Cores
 
-- **Cinza Ardósia** (`#64748B`) — Cor primária corporativa, transmite seriedade e solidez
-- **Laranja Segurança** (`#EA580C`) — Cor de destaque para CTAs e elementos interativos, evoca energia e confiança
-- **Stone/Slate Escuro** (`#0F172A`) — Fundos escuros e textos principais
-- **Off-white** (`#F8FAFC`) — Fundos claros para seções de leitura
+- **Graphite / Ink** (`#0B0F1A`) — Fundo escuro principal, transmite solidez e sofisticação
+- **Ink2** (`#131826`) — Superfícies elevadas (rodapé, menu mobile)
+- **Cinza Ardósia** (`#64748B`) — Cor corporativa de apoio, textos secundários
+- **Laranja Segurança** (`#F97316` / `#EA580C`) — Destaque para CTAs e elementos interativos
+- **Sand / Off-white** (`#FAFAF8`) — Fundos claros e quentes para seções de leitura
 
 ---
 
 ## Estrutura do Site
 
-1. **Navegação Fixa** — Header com glassmorphism ao scroll, menu mobile hambúrguer, CTA "Orçamento Grátis"
-2. **Hero** — Imagem de obra com parallax, estatísticas animadas, dois CTAs principais
-3. **Serviços** — 6 cards com hover interativo: Construção Residencial, Reformas, Projetos Arquitetônicos, Obras Comerciais, Gerenciamento e Regularização
-4. **Diferenciais** — Banner escuro com checklist de compromissos e foto de destaque
-5. **Portfólio** — Grid de 6 obras reais com overlay animado ao hover
-6. **Certificações** — CREA-SP, ISO 9001, NR 18, GBC Brasil + logomarcas de parceiros
-7. **Orçamento Grátis** — Formulário completo com dados de contato da empresa
-8. **Footer** — Navegação, serviços, contato, redes sociais e créditos
-9. **WhatsApp Flutuante** — Botão fixo para conversão imediata
+1. **Loader** — Curtain de carregamento com marca animada (respeita `reduced-motion`)
+2. **Navegação Fixa** — Glassmorphism ao scroll, menu hambúrguer animado, CTA "Orçamento Grátis"
+3. **Hero** — Imagem com **parallax GPU**, headline com gradiente, estatísticas com **contador animado**
+4. **Serviços** — 6 cards com micro-interações e reveal escalonado (stagger)
+5. **Diferenciais** — Banner escuro com checklist, foto de destaque e badge flutuante
+6. **Portfólio** — Grid de 6 obras com overlay animado, zoom suave e foco por teclado
+7. **Certificações** — CREA-SP, ISO 9001, NR 18, GBC Brasil + marquee de parceiros
+8. **Orçamento Grátis** — Formulário acessível com validação e status `aria-live`
+9. **Footer** — Navegação, serviços, contato e redes sociais
+10. **WhatsApp Flutuante** — Botão fixo com pulso animado para conversão imediata
 
 ---
 
-## Destaques de UX/UI
+## Destaques de UI/UX
 
-- **Animações AOS** em todas as seções para engajamento visual
-- **Cards com lift hover** nos serviços para interatividade
-- **Portfolio overlay** com zoom suave nas imagens
-- **Navbar glassmorphism** que muda de cor ao scrollar
-- **Formulário com focus glow** nos campos
-- **Scroll suave** em todos os links âncora
-- **Totalmente responsivo**: mobile, tablet e desktop
-- **Imagens reais do nicho** via Unsplash (construção, obras, arquitetura)
+- **Glassmorphism** na navbar e em elementos de destaque
+- **Animações customizadas** via Intersection Observer — substituindo bibliotecas externas
+- **Stagger reveal** em cards e listas
+- **Parallax suave** no hero, baseado em `transform` (GPU-accelerated)
+- **Contadores animados** com easing nas estatísticas
+- **Cursor customizado** com ring magnético (apenas dispositivos com ponteiro fino)
+- **Micro-interações**: hover lift, glow, transições fluidas
+- **Marquee** infinito de parceiros que pausa ao passar o mouse
+
+---
+
+## Responsividade & Performance
+
+- **Mobile-first** com breakpoints precisos do Tailwind
+- **Tipografia fluida** com `clamp()` (escala perfeitamente entre telas)
+- **Menu hambúrguer animado** e interações touch-friendly
+- **Lazy loading nativo** (`loading="lazy"`) com fade-in nas imagens
+- **Preconnect** para fonts, CDNs e Unsplash
+- Animações restritas a `transform` e `opacity` para 60fps
+
+---
+
+## Acessibilidade
+
+- Contraste em conformidade com **WCAG AA**
+- **Skip link** e landmarks semânticas (`header`, `main`, `nav`, `footer`)
+- **Aria labels** em elementos interativos e ícones decorativos marcados como `aria-hidden`
+- **Focus states** visíveis (`:focus-visible`)
+- Formulário com `label` associado a cada campo e status `aria-live`
+- **`prefers-reduced-motion`** respeitado — todas as animações são desativadas
 
 ---
 
@@ -65,10 +91,10 @@ O projeto foi pensado para converter visitantes em leads qualificados através d
 Abra o arquivo `index.html` diretamente em qualquer navegador moderno. Não requer build ou servidor — todos os assets são carregados via CDN.
 
 ```bash
-# Opção 1: Abrir diretamente
+# Opção 1: abrir diretamente
 open index.html
 
-# Opção 2: Servidor local simples (Python)
+# Opção 2: servidor local simples (Python)
 python3 -m http.server 8080
 # Acesse http://localhost:8080
 ```
@@ -80,8 +106,7 @@ python3 -m http.server 8080
 - **Imagens**: [Unsplash](https://unsplash.com) — fotografias reais de construção civil
 - **Ícones**: [Lucide](https://lucide.dev)
 - **Framework CSS**: [Tailwind CSS](https://tailwindcss.com)
-- **Animações**: [AOS](https://michalsnik.github.io/aos/)
-- **Tipografia**: Google Fonts (Poppins + Open Sans)
+- **Tipografia**: Google Fonts (Sora + Inter)
 
 ---
 
@@ -91,7 +116,7 @@ Projeto desenvolvido por **[JulioAkaminee](https://github.com/JulioAkaminee)** c
 
 A Akamine Web Studio cria experiências digitais de alto impacto para empresas de Bragança Paulista e região. Sites modernos, responsivos e otimizados para conversão.
 
-📍 Bragança Paulista, SP  
+📍 Bragança Paulista, SP
 🔗 [github.com/JulioAkaminee](https://github.com/JulioAkaminee)
 
 ---
